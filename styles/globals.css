@@ -1,9 +1,11 @@
+@import url('https://fonts.googleapis.com/css2?family=Red+Hat+Text:ital,wght@0,400;0,500;1,400&display=swap');
+
 html,
 body {
   padding: 0;
   margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen,
-    Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif;
+  box-sizing: border-box;
+  font-family:'Red Hat Text', sans-serif;
 }
 
 a {
@@ -13,4 +15,47 @@ a {
 
 * {
   box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  font-family: 'Red Hat Text', sans-serif;
+}
+
+header{
+  background: #2e018a;
+  padding: 10pt 18pt;
+  color: #fff;
+  font-size: 20pt;
+}
+
+main{
+  min-height: 90vh;
+  padding: 30pt 18pt;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
+}
+
+main * {
+  width: 100%;
+}
+
+main h1{
+  font-size: 22pt;
+  color: #2e018a;
+  font-weight: 500;
+  margin-bottom: 7.5pt;
+}
+
+main h2{
+  font-size: 16pt;
+  color: #000;
+  font-weight: 500;
+}
+
+footer{
+  background: #252525;
+  padding: 10pt 18pt;
+  color: #fff;
+  font-size: 11pt;
 }
