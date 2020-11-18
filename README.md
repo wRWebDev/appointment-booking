@@ -1,30 +1,23 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+Appointment Booking
+===================
 
-## Getting Started
+First attempt at an entirely JS based appointment booking app with some interesting functionality.
 
-First, run the development server:
+To become part of a bigger app for a charity organisation.
 
-```bash
-npm run dev
-# or
-yarn dev
-```
+## Installation
+  - `npm i` to install dependencies (listed in package.json).
+  - `npm run dev` to run.
+  - See bottom of this document for information on setting up the database for this project.
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+## Features
 
-You can start editing the page by modifying `pages/index.js`. The page auto-updates as you edit the file.
+ - Automatically populated dates and times between start and end dates/times given by an admin.
+ - Disables unavailable times as opposed to hiding them.
+ - After an admin-controlled percentage of slots have been taken by users, slots become available for double-booking.
+   - When this happens, you can see how many other people have are in the slot you're selecting.
 
-## Learn More
+## Tech
 
-To learn more about Next.js, take a look at the following resources:
-
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
-
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/import?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+ - Written in Next.js
+ - Firebase Firestore DB
