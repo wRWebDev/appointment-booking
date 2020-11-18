@@ -1,7 +1,12 @@
 import styles from './booking.module.css'
 import TimeSelectButton from './TimeSelectButton'
 
-const Times = ({ timeHandler }) => {
+const Times = ({ timeHandler, startTime, endTime }) => {
+
+    //Get start and end times from settings
+    const timeToInt = time => {
+        return parseInt(time.split(':')[0])
+    }
 
     const getTimesArray = ( startTime, endTime ) => {
         for(var arr=[], i=startTime; i<=endTime; i++){
@@ -10,7 +15,7 @@ const Times = ({ timeHandler }) => {
         return arr
     }
 
-    var timeList = getTimesArray( 6, 21 )
+    var timeList = getTimesArray( timeToInt(startTime), timeToInt(endTime) )
         
     return (
         <>

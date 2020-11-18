@@ -1,7 +1,7 @@
 import styles from './booking.module.css'
 import DateSelectButton from './DateSelectButton'
 
-const Dates = ({ dateHandler }) => {
+const Dates = ({ dateHandler, startDate, endDate }) => {
 
     const getDaysArray = ( startDate, endDate ) => {
         let arr = []
@@ -11,7 +11,7 @@ const Dates = ({ dateHandler }) => {
         return arr
     }
     
-    var dateList = getDaysArray( new Date("2020-12-04"), new Date("2020-12-12"))
+    var dateList = getDaysArray( new Date(startDate * 1000), new Date(endDate * 1000))
 
     return (
         <>
