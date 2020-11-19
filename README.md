@@ -1,5 +1,5 @@
-Appointment Booking
-===================
+Appointment Booking Prototype
+=============================
 
 First attempt at a JS/NoSQL appointment booking app written using Next and Firebase.
 
