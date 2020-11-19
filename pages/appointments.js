@@ -22,8 +22,6 @@ const Appointments = ({ settings }) => {
       })
   }, [])
 
-  console.log(bookings)
-
   return (
     <Layout title="Booking Demo">
         
