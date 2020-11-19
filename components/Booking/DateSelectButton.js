@@ -1,9 +1,12 @@
 import styles from './booking.module.css'
 
+// MODULE STARTS //
 const DateSelectButton = ({ option, dateHandler, bookings }) => {
     
+    // Convert the date of this box to a unix timestamp for comparrison
     const thisUnixDate = option.getTime()/1000
 
+    // Get only the bookings for this date
     const thisDaysBookings = bookings.filter(booking => {
         return booking.date.seconds === thisUnixDate
     })

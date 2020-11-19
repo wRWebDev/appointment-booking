@@ -1,16 +1,20 @@
+// Globals
 const successPage = '/'
 
+// React
 import { useState, useEffect } from 'react'
 
+// Components
 import Layout from '../components/Layout'
 import Booking from '../components/Booking'
 
+// For Database
 import { loadFirebase } from '../lib/db.js'
+const firebase = loadFirebase()
+const firestore = firebase.firestore()
 
+// PAGE BEGINS //
 const Appointments = ({ settings }) => {
-
-  const firebase = loadFirebase()
-  const firestore = firebase.firestore()
 
   const [bookings, setBookings] = useState([])
 
@@ -36,11 +40,10 @@ const Appointments = ({ settings }) => {
   )
 }
 
+// PAGE LOAD PROPS FROM DB //
 Appointments.getInitialProps = async (ctx) => {
   
-  const firebase = loadFirebase()
-  const firestore = firebase.firestore()
-  
+  // Settings document in the db
   const settingsRef = firestore.collection('settings').doc('Mh0m5jIQfrwllD5HGLJk')
   
   // Fetch Settings ( start/end dates & times )

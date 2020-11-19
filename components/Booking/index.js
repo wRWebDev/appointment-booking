@@ -5,7 +5,6 @@ import ShowSelections from './ShowSelections'
 import Times from './Times'
 import Dates from './Dates'
 import Confirmation from './Confirmation'
-import styles from './booking.module.css'
 
 // For DB
 import { loadFirebase } from '../../lib/db.js'
@@ -19,6 +18,7 @@ import Router from 'next/router'
 import * as Scroll from 'react-scroll'
 let scroll = Scroll.animateScroll
 
+// MAIN MODULE STARTS //
 const Booking = ({ settings, bookings, successPage }) => {
 
     // Using a code for each screen:
@@ -62,7 +62,6 @@ const Booking = ({ settings, bookings, successPage }) => {
     return (
         
         <>
-
             {
                 (date || time) && 
                     <ShowSelections date={date} time={time} />
@@ -93,8 +92,7 @@ const Booking = ({ settings, bookings, successPage }) => {
                         confirmationHandler={confirmationHandler}
                     />
 
-            }
-            
+            }    
         </>
     )
 
