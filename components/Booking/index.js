@@ -19,9 +19,7 @@ import Router from 'next/router'
 import * as Scroll from 'react-scroll'
 let scroll = Scroll.animateScroll
 
-const Booking = ({ settings, bookings }) => {
-
-    console.log(bookings)
+const Booking = ({ settings, bookings, successPage }) => {
 
     // Using a code for each screen:
     //  0 - Select Date || 1 - Select Time || 2 - Confirm?
@@ -58,7 +56,7 @@ const Booking = ({ settings, bookings }) => {
         firestore.collection('bookings')
             .add({ date, time })
             .catch(err => console.error(err.message))
-        Router.push('/')
+        Router.push(successPage)
     }
 
     return (

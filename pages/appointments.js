@@ -1,3 +1,5 @@
+const successPage = '/'
+
 import { useState, useEffect } from 'react'
 
 import Layout from '../components/Layout'
@@ -28,7 +30,7 @@ const Appointments = ({ settings }) => {
         <h1>Booking Demo</h1>
         <h3>Join {bookings.length} others in the Relay for Life!</h3>
         
-        <Booking settings={settings} bookings={bookings} />
+        <Booking settings={settings} bookings={bookings} successPage={successPage} />
         
     </Layout>
   )
@@ -47,20 +49,6 @@ Appointments.getInitialProps = async (ctx) => {
   .catch(err => {
     console.error(err.message)
   })
-  
-  // Fetch Bookings between start and end dates ( inclusive )
-  // Server stores bookings in order of date, asc. for speed of query
-  /*
-  const bookingsRef = firestore.collection('bookings')
-  var bookings = await bookingsRef
-    .where('date', '>=', settings.startDate)
-    .where('date', '<=', settings.endDate)
-    .get()
-    .then(snapshot => {
-      return snapshot.docs.map(doc => doc.data())
-    })
-    .catch(err=>{console.error(err.message)})
-  */
 
   // Pass settings and bookings to Appointments as props
   return { settings }
