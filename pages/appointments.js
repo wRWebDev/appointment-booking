@@ -5,8 +5,24 @@ import Booking from '../components/Booking'
 
 import { loadFirebase } from '../lib/db.js'
 
+const Appointments = ({ settings }) => {
 
-const Appointments = ({ settings, bookings }) => {
+  const firebase = loadFirebase()
+  const firestore = firebase.firestore()
+
+  const [bookings, setBookings] = useState([])
+
+  useEffect(()=>{
+    firestore.collection('bookings')
+      .where('date', '>=', settings.startDate)
+      .where('date', '<=', settings.endDate)
+      .onSnapshot(snap => {
+        const apps = snap.docs.map(booking => booking.data())
+        setBookings(apps)
+      })
+  }, [])
+
+  console.log(bookings)
 
   return (
     <Layout title="Booking Demo">
@@ -36,6 +52,7 @@ Appointments.getInitialProps = async (ctx) => {
   
   // Fetch Bookings between start and end dates ( inclusive )
   // Server stores bookings in order of date, asc. for speed of query
+  /*
   const bookingsRef = firestore.collection('bookings')
   var bookings = await bookingsRef
     .where('date', '>=', settings.startDate)
@@ -45,9 +62,10 @@ Appointments.getInitialProps = async (ctx) => {
       return snapshot.docs.map(doc => doc.data())
     })
     .catch(err=>{console.error(err.message)})
+  */
 
   // Pass settings and bookings to Appointments as props
-  return { settings, bookings }
+  return { settings }
 
 }
 

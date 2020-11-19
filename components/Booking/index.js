@@ -21,6 +21,8 @@ let scroll = Scroll.animateScroll
 
 const Booking = ({ settings, bookings }) => {
 
+    console.log(bookings)
+
     // Using a code for each screen:
     //  0 - Select Date || 1 - Select Time || 2 - Confirm?
     const [display, setDisplayTo] = useState(0)
