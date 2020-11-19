@@ -1,4 +1,4 @@
-import { useState, useEffect } from 'react'
+import { useState } from 'react'
 
 // Import modules and styles
 import ShowSelections from './ShowSelections'
@@ -6,6 +6,14 @@ import Times from './Times'
 import Dates from './Dates'
 import Confirmation from './Confirmation'
 import styles from './booking.module.css'
+
+// For DB
+import { loadFirebase } from '../../lib/db.js'
+const firebase = loadFirebase()
+const firestore = firebase.firestore()
+
+// For redirects
+import Router from 'next/router'
 
 // For smooth scroll
 import * as Scroll from 'react-scroll'
@@ -45,7 +53,10 @@ const Booking = ({ settings, bookings }) => {
 
     // Handle request to complete selection
     const confirmationHandler = () => {
-        alert('Now to payment!')
+        firestore.collection('bookings')
+            .add({ date, time })
+            .catch(err => console.error(err.message))
+        Router.push('/')
     }
 
     return (
