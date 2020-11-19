@@ -13,7 +13,8 @@ let scroll = Scroll.animateScroll
 
 const Booking = ({ settings, bookings }) => {
 
-    console.log(settings, bookings)
+    console.log('Settings:', settings)
+    console.log('Bookings:', bookings)
 
     // Using a code for each screen:
     //  0 - Select Date || 1 - Select Time || 2 - Confirm?

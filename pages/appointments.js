@@ -25,24 +25,27 @@ Appointments.getInitialProps = async (ctx) => {
   const firestore = firebase.firestore()
   
   const settingsRef = firestore.collection('settings').doc('Mh0m5jIQfrwllD5HGLJk')
-  const bookingsRef = firestore.collection('bookings')
-
+  
+  // Fetch Settings ( start/end dates & times )
   var settings = await settingsRef.get()
-    .then(doc => {return (doc.data())})
-    .catch(err => {
-      console.error(err.message)
-    })
-
+  .then(doc => {return (doc.data())})
+  .catch(err => {
+    console.error(err.message)
+  })
+  
+  // Fetch Bookings between start and end dates ( inclusive )
+  // Server stores bookings in order of date, asc. for speed of query
+  const bookingsRef = firestore.collection('bookings')
   var bookings = await bookingsRef
+    .where('date', '>=', settings.startDate)
+    .where('date', '<=', settings.endDate)
     .get()
     .then(snapshot => {
-      console.log(snapshot.docs)
       return snapshot.docs.map(doc => doc.data())
     })
     .catch(err=>{console.error(err.message)})
 
-  console.log(bookings)
-
+  // Pass settings and bookings to Appointments as props
   return { settings, bookings }
 
 }
