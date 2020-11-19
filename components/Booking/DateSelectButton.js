@@ -9,8 +9,10 @@ const DateSelectButton = ({ option, dateHandler }) => {
         day: 'numeric'
     }).split(',')
 
+    // Get day name (Mon, Tue, Wed etc.)
     const weekday = thisDate[0]
-    const dateSplit = thisDate[1].split(' ')
+    // Split into array [ D, MMM, YY ]
+    const dateSplit = thisDate[1].split(' ').slice(1)
     
     // determine superscript letters
     const superScript = `th`
@@ -21,7 +23,7 @@ const DateSelectButton = ({ option, dateHandler }) => {
             onClick={() => dateHandler(option)}
         >
             <span className={styles.highlight}>{weekday}</span>
-            {`${dateSplit[0]} ${dateSplit[1]} ${dateSplit[2]} '${dateSplit[3]}`}
+            {` ${dateSplit[0]} ${dateSplit[1]} '${dateSplit[2]}`}
         </div>
     )
 

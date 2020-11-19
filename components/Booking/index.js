@@ -11,7 +11,9 @@ import styles from './booking.module.css'
 import * as Scroll from 'react-scroll'
 let scroll = Scroll.animateScroll
 
-const Booking = ({ settings }) => {
+const Booking = ({ settings, bookings }) => {
+
+    console.log(settings, bookings)
 
     // Using a code for each screen:
     //  0 - Select Date || 1 - Select Time || 2 - Confirm?
