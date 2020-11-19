@@ -1,7 +1,7 @@
 import styles from './booking.module.css'
 import TimeSelectButton from './TimeSelectButton'
 
-const Times = ({ timeHandler, startTime, endTime }) => {
+const Times = ({ chosenDate, timeHandler, startTime, endTime, bookings }) => {
 
     //Get start and end times from settings
     const timeToInt = time => {
@@ -27,10 +27,12 @@ const Times = ({ timeHandler, startTime, endTime }) => {
                 {
                     timeList.map(( time, i ) => {
                         return (
-                            <TimeSelectButton 
+                            <TimeSelectButton
                                 key={i}
+                                chosenDate={chosenDate}
                                 option={time}
                                 timeHandler={timeHandler}
+                                bookings={bookings}
                             />
                         )
                     })

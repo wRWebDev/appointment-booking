@@ -1,7 +1,7 @@
 import styles from './booking.module.css'
 import DateSelectButton from './DateSelectButton'
 
-const Dates = ({ dateHandler, startDate, endDate }) => {
+const Dates = ({ dateHandler, startDate, endDate, bookings }) => {
 
     const getDaysArray = ( startDate, endDate ) => {
         let arr = []
@@ -26,6 +26,7 @@ const Dates = ({ dateHandler, startDate, endDate }) => {
                                 key={i}
                                 option={date} 
                                 dateHandler={dateHandler}
+                                bookings={bookings}
                             />
                         ) 
                     })

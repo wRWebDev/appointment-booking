@@ -1,7 +1,14 @@
 import styles from './booking.module.css'
 
-const DateSelectButton = ({ option, dateHandler }) => {
+const DateSelectButton = ({ option, dateHandler, bookings }) => {
     
+    const thisUnixDate = option.getTime()/1000
+
+    const thisDaysBookings = bookings.filter(booking => {
+        return booking.date.seconds === thisUnixDate
+    })
+
+    // Format the date
     const thisDate = option.toLocaleDateString('en-GB', {
         weekday: 'short', 
         year: '2-digit', 
@@ -14,8 +21,18 @@ const DateSelectButton = ({ option, dateHandler }) => {
     // Split into array [ D, MMM, YY ]
     const dateSplit = thisDate[1].split(' ').slice(1)
     
+    // FIXME:
     // determine superscript letters
     const superScript = `th`
+
+    // Show other exercisers on this day?
+    const showOthers = () => {
+        return !thisDaysBookings.length
+            ? ''
+            : thisDaysBookings.length === 1
+                ? <span className={styles.smallPrint}>Exercise with {thisDaysBookings.length} other</span>
+                : <span className={styles.smallPrint}>Exercise with {thisDaysBookings.length} others</span>
+    }
 
     return (
         <div 
@@ -23,7 +40,8 @@ const DateSelectButton = ({ option, dateHandler }) => {
             onClick={() => dateHandler(option)}
         >
             <span className={styles.highlight}>{weekday}</span>
-            {` ${dateSplit[0]} ${dateSplit[1]} '${dateSplit[2]}`}
+            {` ${dateSplit[0]} ${dateSplit[1]} '${dateSplit[2]}`}<br/>
+            {showOthers()}
         </div>
     )
 

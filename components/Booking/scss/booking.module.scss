@@ -73,3 +73,16 @@ $grey: #9790a4;
     color: $grey;
 }
 
+.smallPrint{
+    font-weight: 400;
+    font-size: 10pt;
+    font-style: italic;
+    color: $grey;
+}
+
+.unavailable{
+    font-style: italic;
+    color: $grey;
+    text-transform: none;
+    cursor: default;
+}

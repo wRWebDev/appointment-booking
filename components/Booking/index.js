@@ -13,9 +13,6 @@ let scroll = Scroll.animateScroll
 
 const Booking = ({ settings, bookings }) => {
 
-    console.log('Settings:', settings)
-    console.log('Bookings:', bookings)
-
     // Using a code for each screen:
     //  0 - Select Date || 1 - Select Time || 2 - Confirm?
     const [display, setDisplayTo] = useState(0)
@@ -65,14 +62,17 @@ const Booking = ({ settings, bookings }) => {
                         dateHandler={dateHandler} 
                         startDate={settings.startDate.seconds}
                         endDate={settings.endDate.seconds}
+                        bookings={bookings}
                     />
             }
             {
                 display === 1 && 
                     <Times 
+                        chosenDate={date.getTime()/1000}
                         timeHandler={timeHandler} 
                         startTime={settings.startTime} 
-                        endTime={settings.endTime} 
+                        endTime={settings.endTime}
+                        bookings={bookings}
                     />
             } 
             {

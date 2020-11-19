@@ -67,3 +67,17 @@
   font-style: italic;
   color: #9790a4;
 }
+
+.smallPrint {
+  font-weight: 400;
+  font-size: 10pt;
+  font-style: italic;
+  color: #9790a4;
+}
+
+.unavailable {
+  font-style: italic;
+  color: #9790a4;
+  text-transform: none;
+  cursor: default;
+}
