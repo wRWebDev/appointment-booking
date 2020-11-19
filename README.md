@@ -1,9 +1,11 @@
 Appointment Booking
 ===================
 
-First attempt at an entirely JS based appointment booking app with some interesting functionality.
+First attempt at a JS/NoSQL appointment booking app written using Next and Firebase.
 
-To become part of a bigger app for a charity organisation.
+To become part of a bigger app for a charity organisation, but end-point applications could be broad.
+
+![Screenshots](https://github.com/wRWebDev/appointment-booking/blob/master/Screenshots.png?raw=true)
 
 ## Installation
 
@@ -22,6 +24,7 @@ If using the module in your own project:
   - Install the above dependencies
   - Copy `components`, `lib/db.js`, `next.config.js` & `pages/appointments.js` to your root project directory
   - Setup the database and `.env` file as outlined at the bottom of this document.
+ 
 
 ## Features
 
@@ -81,12 +84,14 @@ bookings: {
     - Copy the variables within the `firebaseConfig` variable to a `.env` file with the following variable names:
 
 ```
-API_KEY=___YourAppKey___
-AUTH_DOMAIN=___YourAuthKey___
-DB_URL=___YourDbUrl___
-PROJECT_ID=___YourProjectId___
-STORAGE_BUCKET=___YourStorageBucket___
-MSG_SENDER_ID=___YourMessagingSenderId___
-APP_ID=___YourAppId___
-MEASUREMENT_ID=___YourMeasurementId___
+FIREBASE_API_KEY=___YourAppKey___
+FIREBASE_AUTH_DOMAIN=___YourAuthKey___
+FIREBASE_DB_URL=___YourDbUrl___
+FIREBASE_PROJECT_ID=___YourProjectId___
+FIREBASE_STORAGE_BUCKET=___YourStorageBucket___
+FIREBASE_MSG_SENDER_ID=___YourMessagingSenderId___
+FIREBASE_APP_ID=___YourAppId___
+FIREBASE_MEASUREMENT_ID=___YourMeasurementId___
 ```
+
+  - Set your start/end dates/times in the database

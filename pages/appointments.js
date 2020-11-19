@@ -32,7 +32,7 @@ const Appointments = ({ settings }) => {
     <Layout title="Booking Demo">
         
         <h1>Booking Demo</h1>
-        <h3>Join {bookings.length} others in the Relay for Life!</h3>
+        <h3>Join {bookings.length} others in booking with us!</h3>
         
         <Booking settings={settings} bookings={bookings} successPage={successPage} />
         
